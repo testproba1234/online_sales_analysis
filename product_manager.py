@@ -26,3 +26,18 @@ if __name__ == "__main__":
     manager.add_product(Product("Tablet", 399.99, 3))
     manager.display_products()
     print(f"Total Inventory Value: ${manager.total_inventory_value():.2f}")
+
+class ProductManager:
+    def __init__(self):
+        self.products = []
+
+    def add_product(self, product):
+        self.products.append(product)
+
+    def remove_product(self, name):
+        for product in self.products:
+            if product.name == name:
+                self.products.remove(product)
+                print(f"Product {name} removed.")
+                return
+        print(f"Product {name} not found.")
